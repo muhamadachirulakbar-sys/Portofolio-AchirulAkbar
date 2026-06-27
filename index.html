@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio – Achirul Akbar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Canvas partikel background -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- ===== NAVBAR ===== -->
+<header id="header">
+    <div class="nav-container">
+        <div class="logo">
+            <span class="logo-bracket">&lt;</span>Achirul<span class="logo-accent">Akbar</span><span class="logo-bracket">/&gt;</span>
+        </div>
+        <nav id="nav">
+            <a href="#about">Tentang</a>
+            <a href="#skills">Skill</a>
+            <a href="#certificates">Sertifikat</a>
+            <a href="#projects">Project</a>
+            <a href="#contact">Kontak</a>
+        </nav>
+        <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <!-- Kiri: teks -->
+    <div class="hero-content">
+        <div class="hero-big-title">PORTO<span>FOLIO</span></div>
+        <h1 class="hero-name">Muhamad Achirul Akbar</h1>
+        <h2 class="hero-role"><span id="typing"></span><span class="cursor">|</span></h2>
+        <p class="hero-sub">IT Insfrastucture &nbsp;•&nbsp; Network Engineer &nbsp;•&nbsp; Linux &nbsp;•&nbsp; Cloud</p>
+        <div class="hero-actions">
+            <button class="btn-primary" onclick="scrollToSection('about')">Explore Portfolio</button>
+            <button class="btn-outline" onclick="scrollToSection('contact')">Hubungi Saya</button>
+            <button class="btn-cv" onclick="openCert('MUHAMAD ACHIRUL AKBAR CV.pdf', 'CV – Muhamad Achirul Akbar', 'Curriculum Vitae')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+                Lihat CV
+            </button>
+        </div>
+    </div>
+    <!-- Kanan: ilustrasi animasi TJKT -->
+    <div class="hero-visual">
+        <div class="hero-illustration">
+
+            <!-- Monitor utama -->
+            <svg class="illus-svg" viewBox="0 0 420 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <!-- Shadow bawah monitor -->
+                <ellipse cx="190" cy="340" rx="100" ry="14" fill="rgba(0,212,255,0.12)"/>
+
+                <!-- Monitor body -->
+                <rect x="60" y="80" width="260" height="170" rx="14" fill="#0a2535" stroke="#00d4ff" stroke-width="2"/>
+                <rect x="72" y="92" width="236" height="146" rx="8" fill="#061820"/>
+                <!-- Screen content — terminal lines -->
+                <rect x="84" y="104" width="80" height="6" rx="3" fill="#00e5c3" opacity="0.7"/>
+                <rect x="84" y="116" width="140" height="4" rx="2" fill="#00d4ff" opacity="0.4"/>
+                <rect x="84" y="126" width="110" height="4" rx="2" fill="#00d4ff" opacity="0.3"/>
+                <rect x="84" y="136" width="160" height="4" rx="2" fill="#00e5c3" opacity="0.25"/>
+                <rect x="84" y="146" width="90"  height="4" rx="2" fill="#00d4ff" opacity="0.3"/>
+                <rect x="84" y="156" width="130" height="4" rx="2" fill="#00e5c3" opacity="0.2"/>
+                <rect x="84" y="166" width="70"  height="4" rx="2" fill="#00d4ff" opacity="0.35"/>
+                <rect x="84" y="176" width="120" height="4" rx="2" fill="#00e5c3" opacity="0.3"/>
+                <rect x="84" y="186" width="100" height="4" rx="2" fill="#00d4ff" opacity="0.2"/>
+                <!-- Blinking cursor -->
+                <rect x="84" y="202" width="10" height="8" rx="1" fill="#00d4ff" class="illus-blink"/>
+
+                <!-- Monitor stand -->
+                <rect x="175" y="250" width="30" height="30" rx="4" fill="#0a2535" stroke="#00d4ff" stroke-width="1.5"/>
+                <rect x="155" y="278" width="70" height="10" rx="5" fill="#0a2535" stroke="#00d4ff" stroke-width="1.5"/>
+
+                <!-- ===== FLOATING ICONS ===== -->
+
+                <!-- Icon: Linux (kiri atas) -->
+                <g class="illus-float-1">
+                    <circle cx="49" cy="91" r="34" fill="rgba(0,229,195,0.06)"/>
+                    <circle cx="49" cy="91" r="28" fill="none" stroke="#00e5c3" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <image href="LOGO LINUX.png" x="29" y="71" width="40" height="40"/>
+                    <text x="49" y="134" text-anchor="middle" font-size="7.5" fill="#00e5c3" font-family="Fira Code,monospace" font-weight="700" letter-spacing="1.5">LINUX</text>
+                </g>
+
+                <!-- Icon: MikroTik (kiri bawah) -->
+                <g class="illus-float-2">
+                    <circle cx="39" cy="206" r="34" fill="rgba(0,212,255,0.06)"/>
+                    <circle cx="39" cy="206" r="28" fill="none" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <image href="LOGO MIKROTIK.png" x="19" y="186" width="40" height="40"/>
+                    <text x="39" y="249" text-anchor="middle" font-size="7" fill="#00d4ff" font-family="Fira Code,monospace" font-weight="700" letter-spacing="1.5">MIKROTIK</text>
+                </g>
+
+                <!-- Icon: AWS Cloud (kanan atas) -->
+                <g class="illus-float-3">
+                    <circle cx="343" cy="83" r="34" fill="rgba(0,212,255,0.06)"/>
+                    <circle cx="343" cy="83" r="28" fill="none" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <image href="LOGO CLOUD.png" x="323" y="63" width="40" height="40"/>
+                    <text x="343" y="126" text-anchor="middle" font-size="7.5" fill="#00d4ff" font-family="Fira Code,monospace" font-weight="700" letter-spacing="1.5">CLOUD</text>
+                </g>
+
+                <!-- Icon: Cisco (kanan tengah) -->
+                <g class="illus-float-4">
+                    <circle cx="355" cy="188" r="34" fill="rgba(0,212,255,0.06)"/>
+                    <circle cx="355" cy="188" r="28" fill="none" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <image href="LOGO CISCO.png" x="335" y="168" width="40" height="40"/>
+                    <text x="355" y="231" text-anchor="middle" font-size="7.5" fill="#00d4ff" font-family="Fira Code,monospace" font-weight="700" letter-spacing="1.5">CISCO</text>
+                </g>
+
+                <!-- Icon: Security (bawah kiri) -->
+                <g class="illus-float-5">
+                    <circle cx="60" cy="308" r="34" fill="rgba(0,229,195,0.06)"/>
+                    <circle cx="60" cy="308" r="28" fill="none" stroke="#00e5c3" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <image href="LOGO CYBERSECURITY.png" x="40" y="288" width="40" height="40"/>
+                    <text x="60" y="351" text-anchor="middle" font-size="7" fill="#00e5c3" font-family="Fira Code,monospace" font-weight="700" letter-spacing="1.5">SECURITY</text>
+                </g>
+
+                <!-- Icon: Server (bawah kanan) -->
+                <g class="illus-float-6">
+                    <circle cx="341" cy="298" r="34" fill="rgba(0,212,255,0.06)"/>
+                    <circle cx="341" cy="298" r="28" fill="none" stroke="#00d4ff" stroke-width="0.8" stroke-dasharray="4 4"/>
+                    <image href="LOGO SERVER.png" x="321" y="278" width="40" height="40"/>
+                    <text x="341" y="341" text-anchor="middle" font-size="7" fill="#00d4ff" font-family="Fira Code,monospace" font-weight="700" letter-spacing="1.5">SERVER</text>
+                </g>
+
+                <!-- ===== GEARS ===== -->
+                <!-- Gear besar kanan atas -->
+                <g class="illus-gear-cw" style="transform-origin:290px 55px">
+                    <circle cx="290" cy="55" r="22" stroke="rgba(0,212,255,0.25)" stroke-width="3" fill="none"/>
+                    <circle cx="290" cy="55" r="10" stroke="rgba(0,212,255,0.25)" stroke-width="2" fill="none"/>
+                    <!-- teeth -->
+                    <rect x="286" y="28" width="8" height="10" rx="2" fill="rgba(0,212,255,0.2)"/>
+                    <rect x="286" y="72" width="8" height="10" rx="2" fill="rgba(0,212,255,0.2)"/>
+                    <rect x="263" y="51" width="10" height="8" rx="2" fill="rgba(0,212,255,0.2)"/>
+                    <rect x="307" y="51" width="10" height="8" rx="2" fill="rgba(0,212,255,0.2)"/>
+                </g>
+
+                <!-- Gear kecil kiri bawah -->
+                <g class="illus-gear-ccw" style="transform-origin:135px 295px">
+                    <circle cx="135" cy="295" r="16" stroke="rgba(0,229,195,0.22)" stroke-width="2.5" fill="none"/>
+                    <circle cx="135" cy="295" r="7"  stroke="rgba(0,229,195,0.22)" stroke-width="2" fill="none"/>
+                    <rect x="131" y="275" width="8" height="8" rx="2" fill="rgba(0,229,195,0.18)"/>
+                    <rect x="131" y="307" width="8" height="8" rx="2" fill="rgba(0,229,195,0.18)"/>
+                    <rect x="115" y="291" width="8" height="8" rx="2" fill="rgba(0,229,195,0.18)"/>
+                    <rect x="147" y="291" width="8" height="8" rx="2" fill="rgba(0,229,195,0.18)"/>
+                </g>
+
+                <!-- Koneksi garis antar icon -->
+                <line x1="80"  y1="91"  x2="130" y2="120" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="70"  y1="195" x2="130" y2="185" stroke="rgba(0,229,195,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="310" y1="83"  x2="270" y2="120" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="322" y1="188" x2="280" y2="200" stroke="rgba(0,212,255,0.15)" stroke-width="1" stroke-dasharray="4 4"/>
+
+            </svg>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="fade">
+    <div class="section-container">
+        <div class="section-label">// tentang saya</div>
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-wrap">
+            <!-- Foto menonjol di kiri -->
+            <div class="about-avatar-col">
+                <div class="about-avatar-ring">
+                    <img
+                        src="FOTO SAYA.png"
+                        alt="Achirul Akbar"
+                        class="about-avatar-img"
+                    />
+                </div>
+            </div>
+            <!-- Card info di kanan -->
+            <div class="about-card">
+                <h3 class="about-name">Muhamad Achirul Akbar</h3>
+                <!-- Badge sekolah -->
+                <div class="about-school">
+                    <img src="LOGO WIKRAMA.png" alt="SMK Wikrama" class="about-school-logo" />
+                    <div class="about-school-info">
+                        <span class="about-school-name">SMK Wikrama Bogor</span>
+                        <span class="about-school-major">Teknik Jaringan Komputer & Telekomunikasi</span>
+                    </div>
+                </div>
+                <div class="about-tags">
+                    <span class="about-tag">TJKT Student</span>
+                    <span class="about-tag">Networking</span>
+                    <span class="about-tag">Linux</span>
+                    <span class="about-tag">Cloud</span>
+                </div>
+                <p class="about-desc">
+                    Saya adalah siswa <strong>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</strong>
+                    di SMK Wikrama Bogor yang memiliki passion di bidang jaringan komputer, dan server Linux. Aktif belajar dan mengembangkan skill di bidang
+                    <strong>Networking</strong>, <strong>Linux</strong>, dan <strong>Cloud</strong>.
+                </p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">9+</span>
+                        <span class="stat-label">Certificates</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Skills</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="fade">
+    <div class="section-container">
+        <div class="section-label">// technical skills</div>
+        <h2 class="section-title">Keahlian Teknis</h2>
+        <div class="skills-grid">
+
+            <!-- Networking & Routing -->
+            <div class="skill-cat">
+                <div class="skill-cat-header">
+                    <span class="skill-cat-icon">🌐</span>
+                    <h3 class="skill-cat-title">Networking & Routing</h3>
+                </div>
+                <div class="skill-tags">
+                    <span>MikroTik</span><span>Cisco</span><span>VLAN Config</span>
+                    <span>NAT Gateway</span><span>DHCP Server</span>
+                    <span>DNS Server</span><span>VoIP</span><span>Wireless P2P</span>
+                    <span>Hotspot Config</span><span>IP Addressing</span>
+                    <span>Network Design</span><span>Packet Tracer</span><span>GNS3</span>
+                </div>
+            </div>
+
+            <!-- Linux System Administration -->
+            <div class="skill-cat skill-cat-accent">
+                <div class="skill-cat-header">
+                    <span class="skill-cat-icon">🐧</span>
+                    <h3 class="skill-cat-title">Linux System Administration</h3>
+                </div>
+                <div class="skill-tags">
+                    <span>Linux Server Admin</span><span>SFTP Server</span>
+                    <span>SAMBA Server</span><span>Web Server</span>
+                    <span>Mail Server</span><span>DNS Server</span><span>Ansible</span>
+                    <span>CyberPanel</span><span>WordPress</span>
+                </div>
+            </div>
+
+            <!-- Cloud Computing -->
+            <div class="skill-cat">
+                <div class="skill-cat-header">
+                    <span class="skill-cat-icon">☁️</span>
+                    <h3 class="skill-cat-title">Cloud Computing – AWS</h3>
+                </div>
+                <div class="skill-tags">
+                    <span>AWS EC2</span><span>AWS VPC</span>
+                    <span>Elastic Load Balancer</span><span>Auto Scaling</span>
+                    <span>AWS RDS</span><span>CloudWatch</span>
+                    <span>Cloud Infrastructure</span><span>AWS Academy</span>
+                </div>
+            </div>
+
+            <!-- Security & Firewall -->
+            <div class="skill-cat">
+                <div class="skill-cat-header">
+                    <span class="skill-cat-icon">🔒</span>
+                    <h3 class="skill-cat-title">Security & Firewall</h3>
+                </div>
+                <div class="skill-tags">
+                    <span>OPNsense Firewall</span><span>Cyber Security</span>
+                    <span>Network Security</span><span>Firewall Policy</span>
+                    <span>Access Control</span>
+                </div>
+            </div>
+
+            <!-- Monitoring & Automation -->
+            <div class="skill-cat">
+                <div class="skill-cat-header">
+                    <span class="skill-cat-icon">📊</span>
+                    <h3 class="skill-cat-title">Monitoring & Automation</h3>
+                </div>
+                <div class="skill-tags">
+                    <span>Nagios</span><span>Zabbix</span><span>AWS CloudWatch</span>
+                    <span>NMS</span><span>Ansible Automation</span>
+                    <span>Infrastructure Monitoring</span>
+                </div>
+            </div>
+
+            <!-- Physical & Fiber -->
+            <div class="skill-cat">
+                <div class="skill-cat-header">
+                    <span class="skill-cat-icon">🔧</span>
+                    <h3 class="skill-cat-title">Physical & Fiber</h3>
+                </div>
+                <div class="skill-tags">
+                    <span>Fiber Optic Installation</span><span>FTTH</span>
+                    <span>Cabling</span><span>Crimping</span>
+                    <span>Access Point Config</span><span>Wireless Network</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== CERTIFICATES ===== -->
+<section id="certificates" class="fade">
+    <div class="section-container">
+        <div class="section-label">// pencapaian</div>
+        <h2 class="section-title">Sertifikat</h2>
+        <div class="cert-grid">
+
+            <div class="cert-card" onclick="openCert('Introduction_to_Cybersecurity_certificate_muhamadachirulakbar-smkwikrama-sch-id_49a790a9-1642-4bb0-8fc2-a8877d67309e.jpg', 'Introduction to Cybersecurity', 'Cisco Networking Academy')">
+                <div class="cert-preview">
+                    <img src="Introduction_to_Cybersecurity_certificate_muhamadachirulakbar-smkwikrama-sch-id_49a790a9-1642-4bb0-8fc2-a8877d67309e.jpg" alt="Introduction to Cybersecurity" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Introduction to Cybersecurity</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Junior_Cybersecurity_Analyst_Career_Path_certificate_muhamadachirulakbar-smkwikrama-sch-id_c7eab942-8726-4753-bcf4-f980761f67ea.jpg', 'Junior Cybersecurity Analyst', 'Cisco Networking Academy')">
+                <div class="cert-preview">
+                    <img src="Junior_Cybersecurity_Analyst_Career_Path_certificate_muhamadachirulakbar-smkwikrama-sch-id_c7eab942-8726-4753-bcf4-f980761f67ea.jpg" alt="Junior Cybersecurity Analyst" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Junior Cybersecurity Analyst</h3>
+                    <p>Cisco Networking Academy</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Linux Fundamental.pdf.jpg', 'Linux Fundamental', 'Aguna Course')">
+                <div class="cert-preview">
+                    <img src="Linux Fundamental.pdf.jpg" alt="Linux Fundamental" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Linux Fundamental</h3>
+                    <p>Aguna Course</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Network Fundamental.pdf.jpg', 'Network Fundamental', 'Aguna Course')">
+                <div class="cert-preview">
+                    <img src="Network Fundamental.pdf.jpg" alt="Network Fundamental" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Network Fundamental</h3>
+                    <p>Aguna Course</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Virtual Machine Fundamental.pdf.jpg', 'Virtual Machine Fundamental', 'Aguna Course')">
+                <div class="cert-preview">
+                    <img src="Virtual Machine Fundamental.pdf.jpg" alt="Virtual Machine Fundamental" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Virtual Machine Fundamental</h3>
+                    <p>Aguna Course</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Muhamad Achirul Akbar Sertifikat Webinar IT Cyber Security 25 Juli 2025.pdf.jpg', 'Webinar IT Cyber Security', 'ID-Networkers')">
+                <div class="cert-preview">
+                    <img src="Muhamad Achirul Akbar Sertifikat Webinar IT Cyber Security 25 Juli 2025.pdf.jpg" alt="Webinar IT Cyber Security" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Webinar IT Cyber Security</h3>
+                    <p>ID-Networkers</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Muhamad Achirul Akbar Sertifikat webinar Building the Future of IT.pdf.jpg', 'Building the Future of IT', 'ID-Networkers')">
+                <div class="cert-preview">
+                    <img src="Muhamad Achirul Akbar Sertifikat webinar Building the Future of IT.pdf.jpg" alt="Building the Future of IT" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Building the Future of IT</h3>
+                    <p>ID-Networkers</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Sertifikat-Mikrotik-Dasar-LMS-ID-Networkers.pdf.jpg', 'Mikrotik Dasar', 'ID-Networkers')">
+                <div class="cert-preview">
+                    <img src="Sertifikat-Mikrotik-Dasar-LMS-ID-Networkers.pdf.jpg" alt="Mikrotik Dasar" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Mikrotik Dasar</h3>
+                    <p>ID-Networkers</p>
+                </div>
+            </div>
+
+            <div class="cert-card" onclick="openCert('Belajar-Linux-dari-Nol-LMS-ID-Networkers.pdf.jpg', 'Belajar Linux dari Nol', 'ID-Networkers')">
+                <div class="cert-preview">
+                    <img src="Belajar-Linux-dari-Nol-LMS-ID-Networkers.pdf.jpg" alt="Belajar Linux dari Nol" loading="lazy"/>
+                    <div class="cert-overlay"><span>Lihat Sertifikat</span></div>
+                </div>
+                <div class="cert-meta">
+                    <h3>Belajar Linux dari Nol</h3>
+                    <p>ID-Networkers</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== MODAL SERTIFIKAT ===== -->
+<div id="certModal" class="modal-overlay" onclick="closeCertOnOverlay(event)">
+    <div class="modal-box">
+        <div class="modal-header">
+            <div class="modal-title-wrap">
+                <h3 id="modalTitle">Nama Sertifikat</h3>
+                <p id="modalIssuer">Issuer</p>
+            </div>
+            <div class="modal-actions">
+                <a id="modalDownload" href="#" download class="modal-btn-download">⬇ Download</a>
+                <button class="modal-btn-close" onclick="closeCert()" aria-label="Tutup">✕</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <img id="modalImg" src="" alt="Sertifikat"/>
+            <iframe id="modalFrame" src="" title="Dokumen" style="display:none;"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="fade">
+    <div class="section-container">
+        <div class="section-label">// karya</div>
+        <h2 class="section-title">Project</h2>
+        <div class="projects-grid">
+
+            <a class="project-card" href="https://drive.google.com/drive/folders/10Pcw81ui41a4XFV0Z0-sFzP6QQW9eBtz?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                    <span class="project-icon">🐧</span>
+                    <span class="project-tag">Linux</span>
+                </div>
+                <h3>Linux Server</h3>
+                <p>Setup Ubuntu Server lengkap dengan konfigurasi layanan seperti Web Server, DNS, SFTP, Samba, dan monitoring sistem.</p>
+                <div class="project-stack">
+                    <span>Ubuntu</span><span>Zabbix</span><span>Bash</span><span>Ansible</span>
+                </div>
+                <div class="project-link">Lihat Project →</div>
+            </a>
+
+            <a class="project-card" href="https://drive.google.com/drive/folders/1bv7vMbCcanfqRwaYbogW7I3doTgHswmm?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                    <span class="project-icon">☁️</span>
+                    <span class="project-tag">Cloud</span>
+                </div>
+                <h3>Cloud Computing</h3>
+                <p>Deployment infrastruktur cloud di AWS menggunakan EC2, VPC, Load Balancer, Auto Scaling, dan RDS.</p>
+                <div class="project-stack">
+                    <span>AWS EC2</span><span>VPC</span><span>RDS</span><span>CloudWatch</span>
+                </div>
+                <div class="project-link">Lihat Project →</div>
+            </a>
+
+            <a class="project-card" href="https://drive.google.com/drive/folders/126sqwPCyhGameAWCvlOP9lP1jHHdpVo9?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                    <span class="project-icon">🔒</span>
+                    <span class="project-tag">Security</span>
+                </div>
+                <h3>Cybersecurity</h3>
+                <p>Implementasi keamanan jaringan mencakup analisis ancaman, penetration testing dasar, dan hardening sistem.</p>
+                <div class="project-stack">
+                    <span>Cisco</span><span>Network Security</span><span>Threat Analysis</span>
+                </div>
+                <div class="project-link">Lihat Project →</div>
+            </a>
+
+            <a class="project-card" href="https://drive.google.com/drive/folders/1Mpatyki9-uzwFd-LVvAc0sjOLAJ34ZT2?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                    <span class="project-icon">🛡️</span>
+                    <span class="project-tag">Firewall</span>
+                </div>
+                <h3>OPNsense Firewall</h3>
+                <p>Konfigurasi firewall OPNsense mencakup firewall rules, NAT, VPN, dan monitoring traffic jaringan.</p>
+                <div class="project-stack">
+                    <span>OPNsense</span><span>Firewall</span><span>NAT</span><span>VPN</span>
+                </div>
+                <div class="project-link">Lihat Project →</div>
+            </a>
+
+            <a class="project-card" href="https://drive.google.com/drive/folders/1YlsLvEredm1QYPkEQ64oUDddEyP0YjUr?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <div class="project-top">
+                    <span class="project-icon">🔌</span>
+                    <span class="project-tag">Networking</span>
+                </div>
+                <h3>Cisco Packet Tracer</h3>
+                <p>Simulasi jaringan menggunakan Cisco Packet Tracer dengan konfigurasi routing dinamis, VLAN, dan switching.</p>
+                <div class="project-stack">
+                    <span>Cisco</span><span>VLAN</span><span>Routing</span><span>Switching</span>
+                </div>
+                <div class="project-link">Lihat Project →</div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="fade">
+    <div class="section-container">
+        <div class="section-label">// hubungi saya</div>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+
+            <!-- Gmail -->
+            <a href="mailto:muhamadachirulakbar@gmail.com" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                        <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-name">Gmail</span>
+                    <span class="contact-value">muhamadachirulakbar@gmail.com</span>
+                </div>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6289517387582" target="_blank" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.121 1.523 5.853L.057 23.57a.75.75 0 0 0 .92.916l5.86-1.536A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.667-.523-5.188-1.433l-.372-.22-3.844 1.008 1.028-3.742-.242-.386A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-name">WhatsApp</span>
+                    <span class="contact-value">+62 895-1738-7582</span>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/achirulhq" target="_blank" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-name">Instagram</span>
+                    <span class="contact-value">@achirulhq</span>
+                </div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/achirulhq" target="_blank" class="contact-card">
+                <div class="contact-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-name">GitHub</span>
+                    <span class="contact-value">github.com/muhamadachirulakbar-sys</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-inner">
+        <p>Dibuat<span></span> oleh <strong>Achirul Akbar</strong></p>
+        <p class="footer-copy">© 2026 — All rights reserved</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
